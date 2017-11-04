@@ -1,5 +1,5 @@
-#ifndef NOTE_MODEL_H
-#define NOTE_MODEL_H
+#ifndef NOTE_TITLE_LIST_MODEL_H
+#define NOTE_TITLE_LIST_MODEL_H
 
 #include <QAbstractListModel>
 
@@ -28,4 +28,4 @@ private:
     const NoteDbAgent *m_dbAgent = nullptr;
 };
 
-#endif // NOTE_MODEL_H
+#endif // NOTE_TITLE_LIST_MODEL_H

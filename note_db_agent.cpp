@@ -57,11 +57,6 @@ int NoteDbAgent::getNoteId(int index) const
     return noteId;
 }
 
-int NoteDbAgent::getNoteIndex(int id) const
-{
-
-}
-
 QString NoteDbAgent::getNoteTitle(int id) const
 {
     QSqlQuery result = execQuery(QString("SELECT title FROM notes WHERE id = %1;").arg(id));

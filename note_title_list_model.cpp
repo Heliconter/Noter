@@ -2,7 +2,6 @@
 #include <note_db_agent.h>
 #include <QDebug>
 #include <QSqlError>
-//#include <cmath>
 
 NoteTitleListModel::NoteTitleListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -30,7 +29,7 @@ QVariant NoteTitleListModel::data(const QModelIndex &index, int role) const
     {
 //        QSqlQuery result = execQuery("SELECT title FROM notes;");
 //        result.seek(index.row());
-//        QVariant ttle = result.value(0); //rand();
+//        QVariant ttle = result.value(0);
         QVariant title = m_dbAgent->getNoteTitle(m_dbAgent->getNoteId(index.row()));
         return title;
     }

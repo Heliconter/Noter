@@ -1,5 +1,5 @@
-#ifndef NOTE_DB_WRAPPER_H
-#define NOTE_DB_WRAPPER_H
+#ifndef NOTE_DB_AGENT_H
+#define NOTE_DB_AGENT_H
 
 #include <QObject>
 #include <QSqlDatabase>
@@ -15,9 +15,7 @@ public:
     void operator=(const NoteDbAgent &) = delete;
 
     int noteCount() const;
-
     int getNoteId(int index) const;
-    int getNoteIndex(int id) const;
 
     QString getNoteTitle(int id) const;
     QString getNoteContent(int id) const;
@@ -37,4 +35,4 @@ private:
     QSqlDatabase m_db;
 };
 
-#endif // NOTE_DB_WRAPPER_H
+#endif // NOTE_DB_AGENT_H

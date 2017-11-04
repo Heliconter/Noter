@@ -2,7 +2,6 @@
 #include "ui_noter.h"
 #include <note_db_agent.h>
 #include "note_title_list_model.h"
-//#include <QPushButton>
 
 Noter::Noter(QWidget *parent)
     : QMainWindow(parent),
