@@ -17,12 +17,8 @@ public:
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
-signals:
-
 public slots:
     void emitAllDataChanged();
-
-private:
 
 private:
     const NoteDbAgent *m_dbAgent = nullptr;

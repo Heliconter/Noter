@@ -22,7 +22,7 @@ public:
 
     void updateNote(int id, QString title, QString content);
 
-    int addNote(QString title, QString content);
+    int appendNote(QString title, QString content);
     void deleteNote(int id);
 
 signals:

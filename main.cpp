@@ -1,5 +1,4 @@
 #include <QApplication>
-#include <QMainWindow>
 #include "noter.h"
 
 int main(int argc, char *argv[])

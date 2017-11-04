@@ -20,8 +20,7 @@ NoteDbAgent::NoteDbAgent(QObject *parent)
                     execQuery("CREATE TABLE notes(id INTEGER PRIMARY KEY, title TEXT, content TEXT);");
                 if (!m_db.tables().contains("labels"))
                     execQuery("CREATE TABLE labels(id INTEGER PRIMARY KEY, name TEXT);");
-                //execQuery("BEGIN;");
-                m_db.transaction();
+                m_db.transaction(); //execQuery("BEGIN;");
             }
             else
                 qWarning() << "error: opening of database failed: " << m_db.lastError();
@@ -35,8 +34,7 @@ NoteDbAgent::NoteDbAgent(QObject *parent)
 
 NoteDbAgent::~NoteDbAgent()
 {
-    //execQuery("COMMIT;");
-    m_db.commit();
+    m_db.commit(); //execQuery("COMMIT;");
     m_db.close();
     QSqlDatabase::removeDatabase(m_db.connectionName());
 }
@@ -78,10 +76,10 @@ void NoteDbAgent::updateNote(int id, QString title, QString content)
     emit dataChanged();
 }
 
-int NoteDbAgent::addNote(QString title, QString content)
+int NoteDbAgent::appendNote(QString title, QString content)
 {
     execQuery(QString("INSERT INTO notes (title, content) VALUES ('%1', '%2');").arg(title).arg(content));
-    QSqlQuery result = execQuery("SELECT last_insert_rowid();");
+    QSqlQuery result = execQuery("SELECT LAST_INSERT_ROWID();");
     result.first();
     int id = result.value(0).toInt();
     emit dataChanged();

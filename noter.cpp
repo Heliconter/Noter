@@ -16,7 +16,9 @@ Noter::Noter(QWidget *parent)
     m_ui->deleteButton->setDisabled(true);
     m_ui->listView->setModel(m_model);
 
-    QObject::connect(m_ui->listView, &QListView::clicked, [this] (const QModelIndex &index) { this->openNote(m_agent->getNoteId(index.row())); });
+    QObject::connect(m_ui->listView, &QListView::clicked, [this] (const QModelIndex &index) {
+        this->openNote(m_agent->getNoteId(index.row()));
+    });
     QObject::connect(m_ui->closeButton, &QPushButton::clicked, this, &Noter::closeOpenedNote);
     QObject::connect(m_ui->addButton, &QPushButton::clicked, this, &Noter::addNote);
     QObject::connect(m_ui->deleteButton, &QPushButton::clicked, this, &Noter::deleteSelectedNote);
@@ -61,7 +63,7 @@ void Noter::openNote(int id)
 
 void Noter::addNote()
 {
-    int id = m_agent->addNote("Новая заметка", "");
+    int id = m_agent->appendNote("Новая заметка", "");
     m_ui->listView->setCurrentIndex(m_model->index(m_agent->noteCount() - 1));
     openNote(id);
 }
